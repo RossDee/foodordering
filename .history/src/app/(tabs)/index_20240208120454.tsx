@@ -1,6 +1,6 @@
 import { StyleSheet, Image } from 'react-native'
 import Colors from '@/src/constants/Colors'
-
+import EditScreenInfo from '@/src/components/EditScreenInfo'
 import { Text, View } from '@/src/components/Themed'
 import products from '@/src/app/assets/data/products'
 const product = products[2]
@@ -21,9 +21,8 @@ export default function TabOneScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 10,
-    backgroundColor: 'white',
-    borderRadius: 20,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   title: {
     fontSize: 20,
@@ -40,7 +39,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
   image: {
-    width: '100%',
-    aspectRatio: 1,
+    width: 200,
+    height: 200,
   },
 })

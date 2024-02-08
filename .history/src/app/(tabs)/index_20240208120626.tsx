@@ -21,9 +21,8 @@ export default function TabOneScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 10,
-    backgroundColor: 'white',
-    borderRadius: 20,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   title: {
     fontSize: 20,
@@ -41,6 +40,6 @@ const styles = StyleSheet.create({
   },
   image: {
     width: '100%',
-    aspectRatio: 1,
+    height: 200,
   },
 })
