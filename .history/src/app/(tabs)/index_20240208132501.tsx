@@ -10,7 +10,7 @@ export default function MenuScreen() {
         renderItem={({ item }) => <ProductListitem product={item} />}
         numColumns={2}
         contentContainerStyle={{ gap: 10 }}
-        columnWrapperStyle={{ gap: 10 }}
+        columnWrapperStyle={{ justifyContent: 'space-between' }}
       />
     </View>
   )

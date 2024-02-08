@@ -15,7 +15,6 @@ const ProductListItem = ({ product }: ProductListItmesProps) => {
     <View style={styles.container}>
       <Image
         style={styles.image}
-        resizeMode='contain'
         source={{ uri: product.image || defaultPizzaImage }}
       />
       <Text style={styles.title}> {product.name} </Text>
@@ -25,12 +24,9 @@ const ProductListItem = ({ product }: ProductListItmesProps) => {
 }
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    flex: 2,
     padding: 20,
     borderRadius: 20,
-    top: 10,
-    backgroundColor: 'white',
-    maxWidth: '50%',
   },
   image: {
     width: '100%',

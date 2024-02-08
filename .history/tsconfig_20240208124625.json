@@ -5,10 +5,10 @@
     "baseUrl": ".",
     "paths": {
       "@/*": ["./*"],
-      "@/components/*": ["/src/components/*"],
-      "@/constants": ["/src/constants/*"],
-      "@/assets/*": ["/src/app/assets/*"],
-      "@/data/*": ["/src/app/assets/data/*"]
+      "components/*": ["/src/components/*"],
+      "constants": ["/src/constants/*"],
+      "assets/*": ["/src/app/assets/*"],
+      "data/*": ["/src/app/assets/data/*"]
     }
   },
   "include": ["**/*.ts", "**/*.tsx", ".expo/types/**/*.ts", "expo-env.d.ts"]

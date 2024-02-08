@@ -15,7 +15,6 @@ const ProductListItem = ({ product }: ProductListItmesProps) => {
     <View style={styles.container}>
       <Image
         style={styles.image}
-        resizeMode='contain'
         source={{ uri: product.image || defaultPizzaImage }}
       />
       <Text style={styles.title}> {product.name} </Text>

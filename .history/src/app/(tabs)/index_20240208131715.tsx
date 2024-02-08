@@ -8,9 +8,6 @@ export default function MenuScreen() {
       <FlatList
         data={products}
         renderItem={({ item }) => <ProductListitem product={item} />}
-        numColumns={2}
-        contentContainerStyle={{ gap: 10 }}
-        columnWrapperStyle={{ gap: 10 }}
       />
     </View>
   )
