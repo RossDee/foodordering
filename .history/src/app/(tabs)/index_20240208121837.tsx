@@ -1,14 +1,26 @@
-import { StyleSheet } from 'react-native'
+import { StyleSheet, Image } from 'react-native'
 import Colors from '@/src/constants/Colors'
 
-import { View } from '@/src/components/Themed'
+import { Text, View } from '@/src/components/Themed'
 import products from '@/src/app/assets/data/products'
-import ProductListitem from '@/src/components/ProductListItem'
+import { ProductListitem } from '@/src/components/ProductListItem'
 
-export default function MenuScreen() {
+type productProps = {
+  product: {
+    id: string
+    title: string
+    image: string
+    avgRating: number
+    ratings: number
+    price: number
+    oldPrice?: number
+  }
+}
+
+export default function TabOneScreen() {
   return (
     <View style={styles.container}>
-      <ProductListitem product={products[2]} />
+      <ProductListItem product={products[2]} />
     </View>
   )
 }

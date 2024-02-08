@@ -1,4 +1,4 @@
-import { StyleSheet } from 'react-native'
+import { StyleSheet, Image } from 'react-native'
 import Colors from '@/src/constants/Colors'
 
 import { View } from '@/src/components/Themed'
