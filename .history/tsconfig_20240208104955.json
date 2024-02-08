@@ -5,8 +5,8 @@
     "paths": {
       "@/*": ["./*"],
       "components/*": ["/src/components/*"],
-      "constants": ["/src/constants/*"],
-      "assets/*": ["/src/app/assets/*"]
+      "buttons": ["src/components/buttons/index"],
+      "src/*": ["src/*"]
     }
   },
   "include": ["**/*.ts", "**/*.tsx", ".expo/types/**/*.ts", "expo-env.d.ts"]

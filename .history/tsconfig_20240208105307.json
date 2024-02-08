@@ -6,7 +6,7 @@
       "@/*": ["./*"],
       "components/*": ["/src/components/*"],
       "constants": ["/src/constants/*"],
-      "assets/*": ["/src/app/assets/*"]
+      "src/*": ["/src/*"]
     }
   },
   "include": ["**/*.ts", "**/*.tsx", ".expo/types/**/*.ts", "expo-env.d.ts"]
