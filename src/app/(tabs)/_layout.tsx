@@ -14,7 +14,7 @@ function TabBarIcon(props: {
 }) {
   return (
     <FontAwesome
-      size={28}
+      size={20}
       style={{ marginBottom: -3 }}
       {...props}
     />
@@ -35,8 +35,12 @@ export default function TabLayout() {
     >
       <Tabs.Screen
         name='index'
+        options={{ href: null }}
+      />
+      <Tabs.Screen
+        name='menu'
         options={{
-          title: 'Tab One',
+          title: 'Menu',
           tabBarIcon: ({ color }) => (
             <TabBarIcon
               name='code'
@@ -68,7 +72,7 @@ export default function TabLayout() {
           title: 'Tab Two',
           tabBarIcon: ({ color }) => (
             <TabBarIcon
-              name='code'
+              name='list'
               color={color}
             />
           ),
