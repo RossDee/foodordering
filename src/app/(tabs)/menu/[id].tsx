@@ -4,13 +4,23 @@ import { Stack, useLocalSearchParams } from 'expo-router'
 import products from '@/src/app/assets/data/products'
 import { defaultPizzaImage } from '@/src/components/ProductListItem'
 import { PizzaSize } from '@/src/types/types'
+import Button from '@/src/components/Button'
+import { useCart } from '@/src/providers/CartProvider'
 
 const pizzaSizes: PizzaSize[] = ['S', 'M', 'L', 'XL']
 
 export default function product() {
   const [selectedSize, setSelectedSize] = useState<PizzaSize>('M') // [1
   const { id } = useLocalSearchParams()
+  const { onAddItem } = useCart()
   const product = products.find((p) => p.id.toString() === id)
+  const addToCart = () => {
+    if (!product) {
+      return
+    }
+    onAddItem(product, selectedSize)
+  }
+
   if (!product) {
     ;<Text>Product not found</Text>
   }
@@ -50,6 +60,10 @@ export default function product() {
         ))}
       </View>
       <Text style={styles.price}>${product?.price}</Text>
+      <Button
+        text='Add to Cart'
+        onPress={addToCart}
+      />
     </View>
   )
 }
@@ -61,9 +75,9 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: 'white',
   },
-  image: { width: '100%', aspectRatio: 1 },
+  image: { width: '100%', aspectRatio: 1, padding: 20 },
   name: {},
-  price: { fontSize: 20, fontWeight: 'bold' },
+  price: { fontSize: 20, fontWeight: 'bold', marginTop: 'auto' },
   sizeContainer: {
     flexDirection: 'row',
     justifyContent: 'space-around',

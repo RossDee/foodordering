@@ -50,7 +50,7 @@ export default function TabLayout() {
           ),
           headerRight: () => (
             <Link
-              href='/modal'
+              href='/cart'
               asChild
             >
               <Pressable>
