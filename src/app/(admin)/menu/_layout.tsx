@@ -14,7 +14,7 @@ export default function MenuStack() {
           title: 'menu',
           headerRight: () => (
             <Link
-              href='/cart'
+              href='/(admin)/menu/create'
               asChild
             >
               <Pressable>
