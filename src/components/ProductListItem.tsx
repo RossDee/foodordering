@@ -2,7 +2,7 @@ import React from 'react'
 import { View, Image, Text, StyleSheet, Pressable } from 'react-native'
 import Colors from '../constants/Colors'
 import { Product } from '@/src/types/types'
-import { Link } from 'expo-router'
+import { Link, useSegments } from 'expo-router'
 
 type ProductListItmesProps = {
   product: Product
@@ -12,9 +12,11 @@ export const defaultPizzaImage =
   'https://hips.hearstapps.com/hmg-prod/images/classic-cheese-pizza-recipe-2-64429a0cb408b.jpg'
 
 const ProductListItem = ({ product }: ProductListItmesProps) => {
+  const segments = useSegments()
+  // console.log('segments', segments)
   return (
     <Link
-      href={`/menu/${product.id}`}
+      href={`/${segments[0]}/menu/${product.id}`}
       asChild
     >
       <Pressable style={styles.container}>
