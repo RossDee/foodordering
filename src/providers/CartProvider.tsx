@@ -9,12 +9,14 @@ type CartType = {
   items: CartItem[] // The array of cart items.
   onAddItem: (product: Product, size: CartItem['size']) => void
   onUodateQuantity: (id: string, quantity: 1 | -1) => void
+  totalPrice: number
 } // The function to add an item to the cart.}
 
 const CartContext = createContext<CartType>({
   items: [],
   onAddItem: () => {},
   onUodateQuantity: () => {},
+  totalPrice: 0,
 })
 
 /**
@@ -55,8 +57,15 @@ export const CartProvider = ({ children }: PropsWithChildren) => {
     )
   }
 
+  const totalPrice = items.reduce(
+    (acc, item) => acc + item.product.price * item.quantity,
+    0
+  )
+
   return (
-    <CartContext.Provider value={{ items, onAddItem, onUodateQuantity }}>
+    <CartContext.Provider
+      value={{ items, onAddItem, onUodateQuantity, totalPrice }}
+    >
       {children}
     </CartContext.Provider>
   )

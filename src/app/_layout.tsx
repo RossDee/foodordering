@@ -10,6 +10,9 @@ import * as SplashScreen from 'expo-splash-screen'
 import { useEffect } from 'react'
 import { CartProvider } from '@/src/providers/CartProvider'
 import { useColorScheme } from '@/src/components/useColorScheme'
+import '@tamagui/core/reset.css'
+import { TamaguiProvider, View } from '@tamagui/core'
+import tamaguiConfig from '@/tamagui.config'
 
 export {
   // Catch any errors thrown by the Layout component.
@@ -52,6 +55,7 @@ function RootLayoutNav() {
   const colorScheme = useColorScheme()
 
   return (
+    // <TamaguiProvider config={tamaguiConfig}>
     <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
       <CartProvider>
         <Stack>
@@ -66,5 +70,6 @@ function RootLayoutNav() {
         </Stack>
       </CartProvider>
     </ThemeProvider>
+    // </TamaguiProvider>
   )
 }
