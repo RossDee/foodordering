@@ -4,13 +4,26 @@ import Button from '@/src/components/Button'
 import { defaultPizzaImage } from '@/src/components/ProductListItem'
 import Colors from '@/src/constants/Colors'
 import * as ImagePicker from 'expo-image-picker'
-import { Stack } from 'expo-router'
+import { Stack, useLocalSearchParams } from 'expo-router'
 
+/**
+ * CreateProductScreen is a React component that allows creating a new product.
+ *
+ * It handles:
+ * - Image picking from the device library
+ * - Input for name and price
+ * - Validation and error handling
+ * - Resetting inputs
+ * - Calling handler on create button press
+ */
 export default function CreateProductScreen() {
   const [name, setName] = useState('')
   const [price, setPrice] = useState('')
   const [error, setError] = useState('')
   const [image, setImage] = useState<string | null>(null)
+  const { id } = useLocalSearchParams()
+  const isUpdate = !!id
+
   const pickImage = async () => {
     // No permissions request is necessary for launching the image library
     let result = await ImagePicker.launchImageLibraryAsync({
@@ -19,8 +32,6 @@ export default function CreateProductScreen() {
       aspect: [4, 3],
       quality: 1, // 0-1
     })
-
-    console.log(result)
 
     if (!result.canceled) {
       setImage(result.assets[0].uri)
@@ -38,6 +49,20 @@ export default function CreateProductScreen() {
     resetInput()
   }
 
+  const onHandleUpdate = () => {}
+
+  const onHandleOnSubmit = () => {
+    if (isUpdate) {
+      onHandleUpdate()
+      //onHandleUpdate
+    } else {
+      onHandleCreate()
+    }
+  }
+
+  const onHandleDelete = () => {
+    return
+  }
   const valideInput = () => {
     setError('')
     if (!name) {
@@ -57,7 +82,9 @@ export default function CreateProductScreen() {
 
   return (
     <View style={styles.container}>
-      <Stack.Screen options={{ title: 'Create Product' }} />
+      <Stack.Screen
+        options={{ title: isUpdate ? 'Update Product' : 'Create Product' }}
+      />
       <Image
         source={{ uri: image || defaultPizzaImage }}
         style={styles.image}
@@ -83,9 +110,22 @@ export default function CreateProductScreen() {
       />
       <Text style={styles.error}>{error}</Text>
       <Button
-        text='Create'
-        onPress={onHandleCreate}
+        text={isUpdate ? 'update' : 'Create'}
+        onPress={onHandleOnSubmit}
       />
+      {isUpdate ? (
+        <Text
+          onPress={onHandleDelete}
+          style={{
+            padding: 5,
+            color: 'red',
+          }}
+        >
+          Delete
+        </Text>
+      ) : (
+        ''
+      )}
     </View>
   )
 }

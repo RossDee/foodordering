@@ -33,7 +33,7 @@ export default function product() {
           title: product?.name,
           headerRight: () => (
             <Link
-              href='/cart'
+              href={`/(admin)/menu/create?id=${id}`}
               asChild
             >
               <Pressable>
