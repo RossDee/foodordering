@@ -26,6 +26,13 @@ export default function index() {
       >
         <Button text='Admin' />
       </Link>
+
+      <Link
+        href={'/(auth)/sign-in'}
+        asChild
+      >
+        <Button text='Sign in' />
+      </Link>
     </View>
   )
 }
