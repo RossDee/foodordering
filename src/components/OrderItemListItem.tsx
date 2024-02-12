@@ -1,10 +1,10 @@
 import { View, Text } from 'react-native'
 import React from 'react'
 
-export default function Order() {
+export default function OrderItemListItem() {
   return (
     <View>
-      <Text>Order</Text>
+      <Text>OrderItemListItem</Text>
     </View>
   )
 }
